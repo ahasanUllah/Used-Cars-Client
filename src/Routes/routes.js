@@ -1,3 +1,4 @@
+import DashboardLayout from '../Layout/DashboardLayout';
 import Main from '../Layout/Main';
 import Category from '../Pages/Category/Category';
 import Home from '../Pages/Home/Home';
@@ -29,5 +30,9 @@ export const router = createBrowserRouter([
             element: <Register></Register>,
          },
       ],
+   },
+   {
+      path: '/dashboard',
+      element: <DashboardLayout></DashboardLayout>,
    },
 ]);
