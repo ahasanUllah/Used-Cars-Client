@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
@@ -17,11 +18,19 @@ const Register = () => {
             const user = result.user;
             updateUser(name);
          })
-         .catch((error) => console.log(error));
+         .catch((error) => {
+            toast.error(error.message);
+            console.log(error);
+         });
    };
    updateUser()
-      .then()
-      .catch((error) => console.log(error));
+      .then((result) => {
+         toast.success('Register successful');
+      })
+      .catch((error) => {
+         console.log(error);
+         toast.error(error.message);
+      });
 
    const handleGoogle = () => {
       googleLogin()

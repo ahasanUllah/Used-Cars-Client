@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
@@ -11,17 +12,23 @@ const Login = () => {
       const password = form.password.value;
       login(email, password)
          .then((result) => {
-            console.log(result);
+            toast.success('Login successful');
          })
-         .catch((error) => console.log(error));
+         .catch((error) => {
+            console.log(error);
+
+            toast.error(error.message);
+         });
    };
    const handleGoogle = () => {
       googleLogin()
          .then((result) => {
             console.log(result);
+            toast.success('Login successful');
          })
          .catch((error) => {
             console.log(error);
+            toast.error(error.message);
          });
    };
    return (
