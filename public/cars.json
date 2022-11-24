@@ -1,0 +1,62 @@
+[
+   {
+      "id": 1,
+      "name": "Porsche Cayenne S Platinum Edition",
+      "image": "https://platform.cstatic-images.com/xlarge/in/v2/872a5dca-0208-5b0c-b431-fb33709e26c0/ebec2c1f-2f98-4416-84fc-41c3c4c7d128/bjJIv4_LL9KIYRpGU9VwCy3NWxc.jpg",
+      "location": "16207 Butterfield Park",
+      "resaleprice": 85361,
+      "originalprice": 203677,
+      "usedfor": 2,
+      "category": "convirtible"
+   },
+   {
+      "id": 2,
+      "name": "Ford Expedition Max King Ranch",
+      "image": "https://platform.cstatic-images.com/medium/in/v2/df9d0d5a-f744-5843-a40b-11ee447a44c1/b3a4f9b0-cb28-4ecd-9a94-47d0cb60fe5b/YKh9fVBJ_bmu7O6e4zo3BfyG-Mc.jpg",
+      "location": "0 Ryan Pass",
+      "resaleprice": 80794,
+      "originalprice": 198756,
+      "usedfor": 5,
+      "category": "coupe"
+   },
+   {
+      "id": 3,
+      "name": "Honda Accord Hybrid Sport",
+      "image": "https://platform.cstatic-images.com/xlarge/in/v2/color_matched_stock_photos/301dc2b7-4d68-4e28-b167-000ec2c8a804/ece3d337-5db6-4c43-aa45-c374a9cfe024.jpg",
+      "location": "5125 Lakewood Gardens Drive",
+      "resaleprice": 101573,
+      "originalprice": 201785,
+      "usedfor": 2,
+      "category": "electric"
+   },
+   {
+      "id": 4,
+      "name": "Porsche Cayenne S Platinum Edition",
+      "image": "https://platform.cstatic-images.com/xlarge/in/v2/872a5dca-0208-5b0c-b431-fb33709e26c0/ebec2c1f-2f98-4416-84fc-41c3c4c7d128/bjJIv4_LL9KIYRpGU9VwCy3NWxc.jpg",
+      "location": "16207 Butterfield Park",
+      "resaleprice": 85361,
+      "originalprice": 203677,
+      "usedfor": 2,
+      "category": "convirtible"
+   },
+   {
+      "id": 5,
+      "name": "Ford Expedition Max King Ranch",
+      "image": "https://platform.cstatic-images.com/medium/in/v2/df9d0d5a-f744-5843-a40b-11ee447a44c1/b3a4f9b0-cb28-4ecd-9a94-47d0cb60fe5b/YKh9fVBJ_bmu7O6e4zo3BfyG-Mc.jpg",
+      "location": "0 Ryan Pass",
+      "resaleprice": 80794,
+      "originalprice": 198756,
+      "usedfor": 5,
+      "category": "coupe"
+   },
+   {
+      "id": 6,
+      "name": "Honda Accord Hybrid Sport",
+      "image": "https://platform.cstatic-images.com/xlarge/in/v2/color_matched_stock_photos/301dc2b7-4d68-4e28-b167-000ec2c8a804/ece3d337-5db6-4c43-aa45-c374a9cfe024.jpg",
+      "location": "5125 Lakewood Gardens Drive",
+      "resaleprice": 101573,
+      "originalprice": 201785,
+      "usedfor": 2,
+      "category": "electric"
+   }
+]

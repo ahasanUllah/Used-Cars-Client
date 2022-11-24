@@ -1,0 +1,14 @@
+[
+   {
+      "name": "convirtible",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/Convertible2.svg"
+   },
+   {
+      "name": "coupe",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/Coupe3.svg"
+   },
+   {
+      "name": "electric",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/ElectricCar5.svg"
+   }
+]
