@@ -9,17 +9,25 @@ import Spinner from '../Shared/Spinner';
 
 const HomeBanner = () => {
    const {
-      data: category,
+      data: category = [],
       isLoading,
       isError,
       refetch,
-   } = useQuery(['category'], () => {
-      return axios('http://localhost:5000/category').then((data) => data.data);
-   });
-   console.log(category);
+   } = useQuery(
+      ['category'],
+      async () => {
+         return await axios('http://localhost:5000/category').then((data) => data.data);
+      },
+      {
+         refetchOnWindowFocus: true,
+      }
+   );
 
    if (isLoading) {
       return <Spinner></Spinner>;
+   }
+   if (isError) {
+      return <h2>Cannot fetch data</h2>;
    }
 
    return (

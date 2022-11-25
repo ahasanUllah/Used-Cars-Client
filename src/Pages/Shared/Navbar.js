@@ -56,6 +56,9 @@ const Navbar = () => {
             <div className="navbar-end">
                {user?.email ? (
                   <>
+                     <Link to="/dashboard" className="mx-5">
+                        Dashboard
+                     </Link>
                      <Link onClick={handleLogout} className="btn">
                         Logout
                      </Link>

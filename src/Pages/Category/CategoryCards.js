@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
+import BookingModal from './BookingModal';
 
 const CategoryCards = ({ car }) => {
-   const { name, image, location, originalprice, resaleprice, usedfor } = car;
+   const { user } = useContext(AuthContext);
+   const { name, image, location, originalPrice, resalePrice, purchaseYear, condition } = car;
    return (
       <div>
          <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
@@ -12,10 +15,10 @@ const CategoryCards = ({ car }) => {
                   <div>
                      <dd class="font-medium">{name}</dd>
                      <dd class="">
-                        Resale Price: <strong>${resaleprice}</strong>
+                        Resale Price: <strong>${resalePrice}</strong>
                      </dd>
                      <dd class="text-sm text-gray-500">
-                        Original Price: <strong>${originalprice}</strong>
+                        Original Price: <strong>${originalPrice}</strong>
                      </dd>
                   </div>
 
@@ -42,9 +45,9 @@ const CategoryCards = ({ car }) => {
                      </svg>
 
                      <div class="mt-1.5 sm:ml-3 sm:mt-0">
-                        <p class="text-gray-500">Used for</p>
+                        <p class="text-gray-500">Year of purchase</p>
 
-                        <p class="font-medium">{usedfor} years</p>
+                        <p class="font-medium">{purchaseYear}</p>
                      </div>
                   </div>
 
@@ -65,9 +68,9 @@ const CategoryCards = ({ car }) => {
                      </svg>
 
                      <div class="mt-1.5 sm:ml-3 sm:mt-0">
-                        <p class="text-gray-500">color</p>
+                        <p class="text-gray-500">Condition</p>
 
-                        <p class="font-medium">red color</p>
+                        <p class="font-medium">{condition}</p>
                      </div>
                   </div>
 
@@ -95,8 +98,17 @@ const CategoryCards = ({ car }) => {
                      </div>
                   </div>
                </div>
+               <div className="mt-6 ">
+                  <label
+                     htmlFor="booking-modal"
+                     className="btn bg-gradient-to-r from-red-600 to-red-700 text-white border-none mx-auto w-full"
+                  >
+                     Book now
+                  </label>
+               </div>
             </div>
          </a>
+         <BookingModal car={car} user={user}></BookingModal>
       </div>
    );
 };
