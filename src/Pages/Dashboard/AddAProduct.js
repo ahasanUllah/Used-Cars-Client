@@ -43,6 +43,7 @@ const AddAProduct = () => {
                sellerEmail: user?.email,
                location,
                phone,
+               status: 'available',
             };
             fetch('http://localhost:5000/cars', {
                method: 'POST',
@@ -63,7 +64,7 @@ const AddAProduct = () => {
          <section className="p-6 bg-gray-100 text-gray-900 mt-8">
             <form
                onSubmit={handleSubmit}
-               novalidate=""
+               noValidate=""
                action=""
                className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
             >
@@ -74,7 +75,7 @@ const AddAProduct = () => {
                   </div>
                   <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                      <div className="col-span-full sm:col-span-3">
-                        <label for="productName" className="text-sm">
+                        <label htmlFor="productName" className="text-sm">
                            Product Name
                         </label>
                         <input
@@ -86,7 +87,7 @@ const AddAProduct = () => {
                         />
                      </div>
                      <div className="col-span-full sm:col-span-3">
-                        <label for="purchaseYear" className="text-sm">
+                        <label htmlFor="purchaseYear" className="text-sm">
                            Year of purchase
                         </label>
                         <input
@@ -98,7 +99,7 @@ const AddAProduct = () => {
                         />
                      </div>
                      <div className="col-span-full sm:col-span-3">
-                        <label for="originalPrice" className="text-sm">
+                        <label htmlFor="originalPrice" className="text-sm">
                            Original Price
                         </label>
                         <input
@@ -110,7 +111,7 @@ const AddAProduct = () => {
                         />
                      </div>
                      <div className="col-span-full sm:col-span-2">
-                        <label for="resalePrice" className="text-sm">
+                        <label htmlFor="resalePrice" className="text-sm">
                            Resale Price
                         </label>
                         <input
@@ -122,7 +123,7 @@ const AddAProduct = () => {
                         />
                      </div>
                      <div className="col-span-full sm:col-span-2">
-                        <label for="Condition" className="text-sm">
+                        <label htmlFor="Condition" className="text-sm">
                            Condition
                         </label>
                         <select
@@ -136,7 +137,7 @@ const AddAProduct = () => {
                         </select>
                      </div>
                      <div className="col-span-full sm:col-span-2">
-                        <label for="category" className="text-sm">
+                        <label htmlFor="category" className="text-sm">
                            Category
                         </label>
                         <select
@@ -150,7 +151,7 @@ const AddAProduct = () => {
                         </select>
                      </div>
                      <div className="col-span-full ">
-                        <label for="description" className="text-sm">
+                        <label htmlFor="description" className="text-sm">
                            Description
                         </label>
                         <textarea
@@ -163,7 +164,7 @@ const AddAProduct = () => {
                      </div>
 
                      <div className="col-span-full sm:col-span-2">
-                        <label for="location" className="text-sm">
+                        <label htmlFor="location" className="text-sm">
                            Location
                         </label>
                         <input
@@ -175,7 +176,7 @@ const AddAProduct = () => {
                         />
                      </div>
                      <div className="col-span-full sm:col-span-2">
-                        <label for="phone" className="text-sm">
+                        <label htmlFor="phone" className="text-sm">
                            phone
                         </label>
                         <input
@@ -188,7 +189,7 @@ const AddAProduct = () => {
                      </div>
                      <div className="col-span-full ">
                         <fieldset className="w-full space-y-1 text-gray-800">
-                           <label for="files" className="block text-sm font-medium">
+                           <label htmlFor="files" className="block text-sm font-medium">
                               Upload product Image
                            </label>
                            <div className="flex">

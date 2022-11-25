@@ -1,6 +1,38 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const BookingModal = ({ car, user }) => {
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const location = form.location.value;
+      const phone = form.phone.value;
+
+      const bookingInfo = {
+         carName: car.name,
+         price: car.resalePrice,
+         image: car.image,
+         carId: car._id,
+         name: user.displayName,
+         email: user.email,
+         location,
+         phone,
+      };
+      fetch('http://localhost:5000/bookings', {
+         method: 'POST',
+         headers: {
+            'content-type': 'application/json',
+         },
+         body: JSON.stringify(bookingInfo),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            if (data.acknowledged) {
+               toast.success('Booking Complete');
+            }
+         });
+   };
    return (
       <div>
          {/* The button to open modal */}
@@ -14,17 +46,22 @@ const BookingModal = ({ car, user }) => {
                </label>
                <h3 className="text-lg font-bold">{car.name}</h3>
                <h3 className="text-md font-semibold mb-3">Price: ${car.resalePrice}</h3>
-               <form novalidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+               <form
+                  onSubmit={handleSubmit}
+                  noValidate=""
+                  action=""
+                  className="space-y-12 ng-untouched ng-pristine ng-valid"
+               >
                   <div className="space-y-4">
                      <div>
-                        <label for="name" className="block mb-2 text-sm">
+                        <label htmlFor="name" className="block mb-2 text-sm">
                            Name
                         </label>
                         <input
                            type="text"
                            name="name"
                            id="name"
-                           value={user?.displayName}
+                           defaultValue={user?.displayName}
                            disabled
                            placeholder="leroy@jenkins.com"
                            className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
@@ -32,7 +69,7 @@ const BookingModal = ({ car, user }) => {
                      </div>
                      <div>
                         <div className="flex justify-between mb-2">
-                           <label for="email" className="text-sm">
+                           <label htmlFor="email" className="text-sm">
                               Email
                            </label>
                         </div>
@@ -40,14 +77,14 @@ const BookingModal = ({ car, user }) => {
                            type="email"
                            name="email"
                            id="email"
-                           value={user?.email}
+                           defaultValue={user?.email}
                            disabled
                            className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                         />
                      </div>
                      <div>
                         <div className="flex justify-between mb-2">
-                           <label for="location" className="text-sm">
+                           <label htmlFor="location" className="text-sm">
                               Location
                            </label>
                         </div>
@@ -61,7 +98,7 @@ const BookingModal = ({ car, user }) => {
                      </div>
                      <div>
                         <div className="flex justify-between mb-2">
-                           <label for="phone" className="text-sm">
+                           <label htmlFor="phone" className="text-sm">
                               Phone
                            </label>
                         </div>
@@ -77,7 +114,7 @@ const BookingModal = ({ car, user }) => {
                   <div className="space-y-2">
                      <div>
                         <button
-                           type="button"
+                           type="submit"
                            className="w-full px-8 py-3 font-semibold rounded-md bg-red-600 text-gray-50"
                         >
                            Book

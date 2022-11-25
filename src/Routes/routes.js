@@ -2,6 +2,7 @@ import DashboardLayout from '../Layout/DashboardLayout';
 import Main from '../Layout/Main';
 import Category from '../Pages/Category/Category';
 import AddAProduct from '../Pages/Dashboard/AddAProduct';
+import MyBookings from '../Pages/Dashboard/MyBookings';
 import MyProduct from '../Pages/Dashboard/MyProduct';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
@@ -47,6 +48,14 @@ export const router = createBrowserRouter([
             element: (
                <PrivateRoute>
                   <MyProduct></MyProduct>
+               </PrivateRoute>
+            ),
+         },
+         {
+            path: '/dashboard/my-bookings',
+            element: (
+               <PrivateRoute>
+                  <MyBookings></MyBookings>
                </PrivateRoute>
             ),
          },

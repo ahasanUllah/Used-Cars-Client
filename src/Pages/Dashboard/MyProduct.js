@@ -58,7 +58,7 @@ const MyProduct = () => {
                         <th className="p-3">Name</th>
                         <th className="p-3">Year of purchase</th>
                         <th className="p-3">Price</th>
-                        <th className="p-3 text-right">Amount</th>
+                        <th className="p-3 text-right">Status</th>
                         <th className="p-3"></th>
                      </tr>
                   </thead>
@@ -78,7 +78,7 @@ const MyProduct = () => {
                               <p>${car.resalePrice}</p>
                            </td>
                            <td className="p-3 text-right">
-                              <p>$15,792</p>
+                              <p>{car.status}</p>
                            </td>
                            <td className="p-3 text-right">
                               <label
