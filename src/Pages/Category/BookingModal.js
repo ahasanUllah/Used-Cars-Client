@@ -22,6 +22,7 @@ const BookingModal = ({ car, user }) => {
          method: 'POST',
          headers: {
             'content-type': 'application/json',
+            authorization: `bearer ${localStorage.getItem('accesstoken')}`,
          },
          body: JSON.stringify(bookingInfo),
       })

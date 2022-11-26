@@ -2,11 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
+import useSeller from '../hooks/useSeller';
 import Navbar from '../Pages/Shared/Navbar';
 
 const DashboardLayout = () => {
    const { user } = useContext(AuthContext);
-
+   const [isAdmin] = useAdmin(user.email);
+   const [isSeller] = useSeller(user.email);
    return (
       <div className="container mx-auto">
          <Navbar></Navbar>
@@ -38,24 +41,29 @@ const DashboardLayout = () => {
                      </div>
                      <div className="divide-y divide-gray-300">
                         <ul className="pt-2 pb-4 space-y-1 text-sm">
-                           <li className=" text-gray-900">
-                              <Link
-                                 rel="noopener noreferrer"
-                                 to="/dashboard/addproduct"
-                                 className="flex items-center p-2 space-x-3 rounded-md"
-                              >
-                                 <span>Add a Product</span>
-                              </Link>
-                           </li>
-                           <li className=" text-gray-900">
-                              <Link
-                                 rel="noopener noreferrer"
-                                 to="/dashboard/my-product"
-                                 className="flex items-center p-2 space-x-3 rounded-md"
-                              >
-                                 <span>My Product</span>
-                              </Link>
-                           </li>
+                           {isSeller && (
+                              <>
+                                 <li className=" text-gray-900">
+                                    <Link
+                                       rel="noopener noreferrer"
+                                       to="/dashboard/addproduct"
+                                       className="flex items-center p-2 space-x-3 rounded-md"
+                                    >
+                                       <span>Add a Product</span>
+                                    </Link>
+                                 </li>
+                                 <li className=" text-gray-900">
+                                    <Link
+                                       rel="noopener noreferrer"
+                                       to="/dashboard/my-product"
+                                       className="flex items-center p-2 space-x-3 rounded-md"
+                                    >
+                                       <span>My Product</span>
+                                    </Link>
+                                 </li>
+                              </>
+                           )}
+
                            <li>
                               <Link
                                  rel="noopener noreferrer"
@@ -65,31 +73,34 @@ const DashboardLayout = () => {
                                  <span>My Bookings</span>
                               </Link>
                            </li>
-
-                           <li>
-                              <Link
-                                 rel="noopener noreferrer"
-                                 to="/dashboard/all-seller"
-                                 className="flex items-center p-2 space-x-3 rounded-md"
-                              >
-                                 <span>All seller</span>
-                              </Link>
-                           </li>
-                           <li>
-                              <Link
-                                 rel="noopener noreferrer"
-                                 to="/dashboard/all-buyer"
-                                 className="flex items-center p-2 space-x-3 rounded-md"
-                              >
-                                 <span>All buyer</span>
-                              </Link>
-                           </li>
+                           {isAdmin && (
+                              <>
+                                 <li>
+                                    <Link
+                                       rel="noopener noreferrer"
+                                       to="/dashboard/all-seller"
+                                       className="flex items-center p-2 space-x-3 rounded-md"
+                                    >
+                                       <span>All seller</span>
+                                    </Link>
+                                 </li>
+                                 <li>
+                                    <Link
+                                       rel="noopener noreferrer"
+                                       to="/dashboard/all-buyer"
+                                       className="flex items-center p-2 space-x-3 rounded-md"
+                                    >
+                                       <span>All buyer</span>
+                                    </Link>
+                                 </li>
+                              </>
+                           )}
                         </ul>
                         <ul className="pt-4 pb-2 space-y-1 text-sm">
                            <li>
                               <a
                                  rel="noopener noreferrer"
-                                 href="#"
+                                 href="/"
                                  className="flex items-center p-2 space-x-3 rounded-md"
                               >
                                  <svg

@@ -27,8 +27,9 @@ const MyProduct = () => {
    }
 
    const handleDelete = (id) => {
-      fetch(`http://localhost:5000/cars/${id}`, {
+      fetch(`http://localhost:5000/cars/${id}?email=${user.email}`, {
          method: 'DELETE',
+         headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       })
          .then((res) => res.json())
          .then((data) => {
