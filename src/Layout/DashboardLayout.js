@@ -65,22 +65,22 @@ const DashboardLayout = () => {
                            </li>
 
                            <li>
-                              <a
+                              <Link
                                  rel="noopener noreferrer"
-                                 href="#"
+                                 to="/dashboard/all-seller"
                                  className="flex items-center p-2 space-x-3 rounded-md"
                               >
                                  <span>All seller</span>
-                              </a>
+                              </Link>
                            </li>
                            <li>
-                              <a
+                              <Link
                                  rel="noopener noreferrer"
-                                 href="#"
+                                 to="/dashboard/all-buyer"
                                  className="flex items-center p-2 space-x-3 rounded-md"
                               >
                                  <span>All buyer</span>
-                              </a>
+                              </Link>
                            </li>
                         </ul>
                         <ul className="pt-4 pb-2 space-y-1 text-sm">

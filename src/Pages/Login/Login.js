@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
    const { login, googleLogin } = useContext(AuthContext);
+   const location = useLocation();
+   const navigate = useNavigate();
+   const from = location.state?.from?.pathname || '/';
+   console.log(from);
+
    const handleSubmit = (event) => {
       event.preventDefault();
       const form = event.target;
@@ -13,6 +18,7 @@ const Login = () => {
       login(email, password)
          .then((result) => {
             toast.success('Login successful');
+            navigate(from, { replace: true });
          })
          .catch((error) => {
             console.log(error);

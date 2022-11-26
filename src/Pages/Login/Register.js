@@ -15,8 +15,24 @@ const Register = () => {
 
       createUser(email, password)
          .then((result) => {
-            const user = result.user;
             updateUser(name);
+            const userInfo = {
+               name,
+               email,
+               role,
+            };
+            fetch(`http://localhost:5000/users`, {
+               method: 'POST',
+               headers: {
+                  'content-type': 'application/json',
+               },
+               body: JSON.stringify(userInfo),
+            })
+               .then((res) => res.json())
+               .then((data) => {
+                  console.log(data);
+                  toast.success('Registration Successful');
+               });
          })
          .catch((error) => {
             toast.error(error.message);
