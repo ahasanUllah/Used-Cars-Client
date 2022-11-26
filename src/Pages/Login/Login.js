@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
    const { login, googleLogin } = useContext(AuthContext);
    const location = useLocation();
    const navigate = useNavigate();
    const from = location.state?.from?.pathname || '/';
-   console.log(from);
+   const [userEmail, setUserEmail] = useState('');
+   const [token] = useToken(userEmail);
+   if (token) {
+      navigate(from, { replace: true });
+   }
 
    const handleSubmit = (event) => {
       event.preventDefault();
@@ -17,8 +22,9 @@ const Login = () => {
       const password = form.password.value;
       login(email, password)
          .then((result) => {
+            const user = result.user;
+            setUserEmail(user.email);
             toast.success('Login successful');
-            navigate(from, { replace: true });
          })
          .catch((error) => {
             console.log(error);
@@ -29,7 +35,22 @@ const Login = () => {
    const handleGoogle = () => {
       googleLogin()
          .then((result) => {
-            console.log(result);
+            const user = result.user;
+            const userInfo = {
+               name: user.displayName,
+               email: user.email,
+               role: 'buyer',
+            };
+            fetch(`http://localhost:5000/users/${user.email}`, {
+               method: 'POST',
+               headers: {
+                  'content-type': 'application/json',
+               },
+               body: JSON.stringify(userInfo),
+            })
+               .then((res) => res.json())
+               .then((data) => console.log(data));
+
             toast.success('Login successful');
          })
          .catch((error) => {
