@@ -1,10 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
    const { createUser, updateUser, googleLogin } = useContext(AuthContext);
+   const navigate = useNavigate();
+   const [userEmail, setUserEmail] = useState('');
+   const [token] = useToken(userEmail);
+   if (token) {
+      navigate('/');
+   }
    const handleSubmit = (event) => {
       event.preventDefault();
       const form = event.target;
@@ -15,6 +22,7 @@ const Register = () => {
 
       createUser(email, password)
          .then((result) => {
+            const user = result.user;
             updateUser(name);
             const userInfo = {
                name,
@@ -31,7 +39,9 @@ const Register = () => {
                .then((res) => res.json())
                .then((data) => {
                   console.log(data);
-                  toast.success('Registration Successful');
+                  if (data.acknowledged) {
+                     setUserEmail(user.email);
+                  }
                });
          })
          .catch((error) => {

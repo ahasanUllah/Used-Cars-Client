@@ -13,8 +13,10 @@ const MyProduct = () => {
       isLoading,
       isError,
       refetch,
-   } = useQuery(['myCar'], () => {
-      return axios(`http://localhost:5000/cars/${user?.email}`).then((data) => data.data);
+   } = useQuery(['myCar'], async () => {
+      return await axios(`http://localhost:5000/cars/${user?.email}`, {
+         headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
+      }).then((data) => data.data);
    });
 
    if (isLoading) {

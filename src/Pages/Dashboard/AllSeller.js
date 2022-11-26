@@ -10,7 +10,11 @@ const AllSeller = () => {
       isError,
       refetch,
    } = useQuery(['sellers'], async () => {
-      return await axios('http://localhost:5000/users/seller').then((data) => data.data);
+      return await axios('http://localhost:5000/users/seller', {
+         headers: {
+            authorization: ` bearer ${localStorage.getItem('accessToken')}`,
+         },
+      }).then((data) => data.data);
    });
    if (isLoading) {
       return <Spinner></Spinner>;

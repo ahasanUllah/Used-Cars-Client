@@ -36,6 +36,7 @@ const Login = () => {
       googleLogin()
          .then((result) => {
             const user = result.user;
+            setUserEmail(user.email);
             const userInfo = {
                name: user.displayName,
                email: user.email,
@@ -49,9 +50,12 @@ const Login = () => {
                body: JSON.stringify(userInfo),
             })
                .then((res) => res.json())
-               .then((data) => console.log(data));
-
-            toast.success('Login successful');
+               .then((data) => {
+                  if (data.acknowledged) {
+                     console.log('data inserted');
+                  }
+                  toast.success('Login successful');
+               });
          })
          .catch((error) => {
             console.log(error);

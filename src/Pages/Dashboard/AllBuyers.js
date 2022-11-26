@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 import Spinner from '../Shared/Spinner';
 
 const AllBuyers = () => {
+   const { user } = useContext(AuthContext);
    const {
       data: buyers,
       isLoading,
@@ -16,8 +18,9 @@ const AllBuyers = () => {
       return <Spinner></Spinner>;
    }
    const handleDelete = (id) => {
-      fetch(`http://localhost:5000/users/${id}`, {
+      fetch(`http://localhost:5000/users/${id}?email=${user.email}`, {
          method: 'DELETE',
+         headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       })
          .then((res) => res.json())
          .then((data) => {

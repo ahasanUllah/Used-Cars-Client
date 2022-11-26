@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
@@ -5,6 +6,7 @@ import Navbar from '../Pages/Shared/Navbar';
 
 const DashboardLayout = () => {
    const { user } = useContext(AuthContext);
+
    return (
       <div className="container mx-auto">
          <Navbar></Navbar>

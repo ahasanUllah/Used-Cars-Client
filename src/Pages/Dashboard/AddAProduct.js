@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const AddAProduct = () => {
    const { user } = useContext(AuthContext);
+   const navigate = useNavigate();
    const handleSubmit = (e) => {
       e.preventDefault();
       const form = e.target;
@@ -45,16 +47,21 @@ const AddAProduct = () => {
                phone,
                status: 'available',
             };
-            fetch('http://localhost:5000/cars', {
+            fetch(`http://localhost:5000/cars?email=${user.email}`, {
                method: 'POST',
                headers: {
                   'content-type': 'application/json',
+                  authorization: `bearer ${localStorage.getItem('accesstoken')}`,
                },
+
                body: JSON.stringify(productInfo),
             })
                .then((res) => res.json())
                .then((data) => {
                   console.log(data);
+                  if (data.acknowledged) {
+                     navigate('/dashboard/my-product');
+                  }
                   toast.success('Car Added');
                });
          });
