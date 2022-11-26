@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
+import useBuyer from '../hooks/useBuyer';
 import useSeller from '../hooks/useSeller';
 import Navbar from '../Pages/Shared/Navbar';
 
@@ -10,6 +11,7 @@ const DashboardLayout = () => {
    const { user } = useContext(AuthContext);
    const [isAdmin] = useAdmin(user.email);
    const [isSeller] = useSeller(user.email);
+   const [isBuyer] = useBuyer(user.email);
    return (
       <div className="container mx-auto">
          <Navbar></Navbar>
@@ -33,7 +35,7 @@ const DashboardLayout = () => {
                         <div>
                            <h2 className="text-lg font-semibold">{user?.displayName}</h2>
                            <span className="flex items-center space-x-1">
-                              <a rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-600">
+                              <a rel="noopener noreferrer" href="/" className="text-xs hover:underline text-gray-600">
                                  View profile
                               </a>
                            </span>
@@ -63,16 +65,18 @@ const DashboardLayout = () => {
                                  </li>
                               </>
                            )}
+                           {isBuyer && (
+                              <li>
+                                 <Link
+                                    rel="noopener noreferrer"
+                                    to="/dashboard/my-bookings"
+                                    className="flex items-center p-2 space-x-3 rounded-md"
+                                 >
+                                    <span>My Bookings</span>
+                                 </Link>
+                              </li>
+                           )}
 
-                           <li>
-                              <Link
-                                 rel="noopener noreferrer"
-                                 to="/dashboard/my-bookings"
-                                 className="flex items-center p-2 space-x-3 rounded-md"
-                              >
-                                 <span>My Bookings</span>
-                              </Link>
-                           </li>
                            {isAdmin && (
                               <>
                                  <li>

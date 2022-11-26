@@ -10,6 +10,7 @@ import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Login/Register';
 import AdminRoute from './AdminRoute';
+import BuyerRoute from './BuyerRoute';
 import PrivateRoute from './PrivateRoute';
 import SellerRoute from './SellerRoute';
 
@@ -71,7 +72,9 @@ export const router = createBrowserRouter([
             path: '/dashboard/my-bookings',
             element: (
                <PrivateRoute>
-                  <MyBookings></MyBookings>
+                  <BuyerRoute>
+                     <MyBookings></MyBookings>
+                  </BuyerRoute>
                </PrivateRoute>
             ),
          },
