@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../hooks/useToken';
+import Spinner from '../Shared/Spinner';
 
 const Login = () => {
    const { login, googleLogin } = useContext(AuthContext);
@@ -11,9 +12,10 @@ const Login = () => {
    const from = location.state?.from?.pathname || '/';
    const [userEmail, setUserEmail] = useState('');
    const [token] = useToken(userEmail);
-   if (token) {
-      navigate(from, { replace: true });
-   }
+
+   // if (token) {
+   //    navigate(from, { replace: true });
+   // }
 
    const handleSubmit = (event) => {
       event.preventDefault();
@@ -23,6 +25,7 @@ const Login = () => {
       login(email, password)
          .then((result) => {
             const user = result.user;
+
             setUserEmail(user.email);
             toast.success('Login successful');
          })
@@ -53,6 +56,7 @@ const Login = () => {
                .then((data) => {
                   if (data.acknowledged) {
                      console.log('data inserted');
+                     navigate(from, { replace: true });
                   }
                   toast.success('Login successful');
                });
@@ -62,6 +66,7 @@ const Login = () => {
             toast.error(error.message);
          });
    };
+
    return (
       <div className="flex justify-center">
          <div className="flex flex-col w-full max-w-md p-6 rounded-md sm:p-10 bg-gray-50 text-gray-800">

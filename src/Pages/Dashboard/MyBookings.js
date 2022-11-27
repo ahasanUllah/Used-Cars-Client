@@ -59,11 +59,20 @@ const MyBookings = () => {
                               <p className="">${booking.price}</p>
                            </td>
                            <td className="p-3 text-right">
-                              <Link to={`/dashboard/payment/${booking._id}`}>
-                                 <button className="px-3 py-1 font-semibold rounded-md bg-red-600 text-gray-50">
-                                    <span>Pay</span>
+                              {booking.status === 'sold' ? (
+                                 <button
+                                    disabled
+                                    className="px-3 py-1 font-semibold rounded-md  btn-disabled text-gray-50"
+                                 >
+                                    <span>Paid</span>
                                  </button>
-                              </Link>
+                              ) : (
+                                 <Link to={`/dashboard/payment/${booking._id}`}>
+                                    <button className="px-3 py-1 font-semibold rounded-md bg-red-600 text-gray-50">
+                                       <span>Pay</span>
+                                    </button>
+                                 </Link>
+                              )}
                            </td>
                         </tr>
                      ))}

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import ConfirmationModal from '../Shared/ConfirmationModal';
 import Spinner from '../Shared/Spinner';
@@ -25,6 +26,20 @@ const MyProduct = () => {
    if (isError) {
       return <h2>Cannot fetch data</h2>;
    }
+   const handleAdvertise = (id) => {
+      fetch(`http://localhost:5000/cars/${id}`, {
+         method: 'PUT',
+         headers: { authorization: `bearer ${localStorage.getItem('accessToken')}` },
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            if (data.acknowledged) {
+               toast.success('advertised successfull');
+               refetch();
+            }
+         });
+   };
 
    const handleDelete = (id) => {
       fetch(`http://localhost:5000/cars/${id}?email=${user.email}`, {
@@ -62,6 +77,7 @@ const MyProduct = () => {
                         <th className="p-3">Year of purchase</th>
                         <th className="p-3">Price</th>
                         <th className="p-3 text-right">Status</th>
+                        <th className="p-3 text-right">Advertisement</th>
                         <th className="p-3"></th>
                      </tr>
                   </thead>
@@ -81,8 +97,34 @@ const MyProduct = () => {
                               <p>${car.resalePrice}</p>
                            </td>
                            <td className="p-3 text-right">
-                              <p>{car.status}</p>
+                              <p>
+                                 {car.status} {car.advertised}
+                              </p>
                            </td>
+                           {car.status === 'available' ? (
+                              <td className="p-3 text-right">
+                                 <button
+                                    disabled={car.advertised}
+                                    onClick={() => handleAdvertise(car._id)}
+                                    htmlFor="my-modal"
+                                    className="btn btn-primary btn-sm font-semibold border-none rounded-md bg-green-600 text-gray-50"
+                                 >
+                                    advertise
+                                 </button>
+                              </td>
+                           ) : (
+                              <td className="p-3 text-right">
+                                 <button
+                                    disabled
+                                    onClick={() => handleAdvertise(car._id)}
+                                    htmlFor="my-modal"
+                                    className="btn btn-primary btn-sm font-semibold border-none rounded-md bg-gray-600 text-gray-50"
+                                 >
+                                    advertise
+                                 </button>
+                              </td>
+                           )}
+
                            <td className="p-3 text-right">
                               <label
                                  onClick={() => setDeletePproduct(car)}
@@ -91,12 +133,6 @@ const MyProduct = () => {
                               >
                                  Delete
                               </label>
-                              {/* <button
-                                 onClick={() => handleDelete(car._id)}
-                                 className="px-3 py-1 font-semibold rounded-md bg-red-600 text-gray-50"
-                              >
-                                 <span>Delete</span>
-                              </button> */}
                            </td>
                         </tr>
                      ))}

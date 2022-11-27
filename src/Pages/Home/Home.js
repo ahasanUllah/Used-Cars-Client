@@ -1,11 +1,13 @@
 import React from 'react';
+import Adviertised from './Adviertised';
 import HomeBanner from './HomeBanner';
 import HomeFeature from './HomeFeature';
 
 const Home = () => {
    return (
-      <div>
+      <div className="">
          <HomeBanner></HomeBanner>
+         <Adviertised></Adviertised>
          <HomeFeature></HomeFeature>
       </div>
    );
