@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import Spinner from '../Shared/Spinner';
 
@@ -58,9 +59,11 @@ const MyBookings = () => {
                               <p className="">${booking.price}</p>
                            </td>
                            <td className="p-3 text-right">
-                              <span className="px-3 py-1 font-semibold rounded-md bg-red-600 text-gray-50">
-                                 <span>Pay</span>
-                              </span>
+                              <Link to={`/dashboard/payment/${booking._id}`}>
+                                 <button className="px-3 py-1 font-semibold rounded-md bg-red-600 text-gray-50">
+                                    <span>Pay</span>
+                                 </button>
+                              </Link>
                            </td>
                         </tr>
                      ))}

@@ -1,10 +1,11 @@
+import moment from 'moment';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import BookingModal from './BookingModal';
 
 const CategoryCards = ({ car }) => {
    const { user } = useContext(AuthContext);
-   const { name, image, location, originalPrice, resalePrice, purchaseYear, condition } = car;
+   const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName } = car;
    return (
       <div>
          <a href="#" className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
@@ -23,7 +24,13 @@ const CategoryCards = ({ car }) => {
                   </div>
 
                   <div>
-                     <dt className="">{location}</dt>
+                     <dt className="">Seller: {sellerName}</dt>
+                  </div>
+                  <div>
+                     <dt className="">Posted on: {moment.utc(date).local().startOf('seconds').fromNow()}</dt>
+                  </div>
+                  <div>
+                     <dt className="">Location: {location}</dt>
                   </div>
                </dl>
 

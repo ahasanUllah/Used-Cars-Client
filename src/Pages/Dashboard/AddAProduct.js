@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+var moment = require('moment');
 
 const AddAProduct = () => {
    const { user } = useContext(AuthContext);
@@ -43,9 +44,11 @@ const AddAProduct = () => {
                condition,
                description,
                sellerEmail: user?.email,
+               sellerName: user?.displayName,
                location,
                phone,
                status: 'available',
+               date: new Date(),
             };
             fetch(`http://localhost:5000/cars?email=${user.email}`, {
                method: 'POST',
