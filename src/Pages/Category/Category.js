@@ -23,7 +23,7 @@ const Category = () => {
    return (
       <div className="space-y-8 mt-12">
          <h2 className="text-2xl font-semibold text-center">{data.name} Cars up for sale</h2>
-         <div className="grid grid-cols-3 gap-5">
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {cars.map((car) => (
                <CategoryCards key={car._id} car={car}></CategoryCards>
             ))}

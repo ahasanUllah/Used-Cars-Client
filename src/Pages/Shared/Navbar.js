@@ -31,14 +31,18 @@ const Navbar = () => {
                         <Link to="/">Home</Link>
                      </li>
                      <li tabIndex={0}>
-                        <Link className="justify-between">Blog</Link>
+                        <Link to="/blog" className="justify-between">
+                           Blog
+                        </Link>
                      </li>
                      <li>
                         <Link>Item 3</Link>
                      </li>
                   </ul>
                </div>
-               <Link className="btn btn-ghost normal-case text-xl">CarSales</Link>
+               <Link to="/" className="btn btn-ghost normal-case text-xl">
+                  CarSales
+               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal p-0">
@@ -46,10 +50,7 @@ const Navbar = () => {
                      <Link to="/">Home</Link>
                   </li>
                   <li tabIndex={0}>
-                     <Link>Blog</Link>
-                  </li>
-                  <li>
-                     <Link>Item 3</Link>
+                     <Link to="/blog">Blog</Link>
                   </li>
                </ul>
             </div>

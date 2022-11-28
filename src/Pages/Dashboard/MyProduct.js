@@ -97,9 +97,7 @@ const MyProduct = () => {
                               <p>${car.resalePrice}</p>
                            </td>
                            <td className="p-3 text-right">
-                              <p>
-                                 {car.status} {car.advertised}
-                              </p>
+                              <p>{car.status}</p>
                            </td>
                            {car.status === 'available' ? (
                               <td className="p-3 text-right">
