@@ -7,6 +7,10 @@
 -  Tailwind and some of its component library is used to design the site.
 -  MongoDB as detabase
 
+adminEmail: admin@gmail.com
+
+adminPassword: 123456
+
 ## Live Website
 
 https://used-car-1e706.web.app/
