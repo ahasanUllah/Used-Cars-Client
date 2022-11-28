@@ -4,7 +4,7 @@ const useBuyer = (email) => {
    const [isBuyer, setIsBuyer] = useState();
    const [isBuyerLoading, setIsBuyerLoading] = useState(true);
    useEffect(() => {
-      fetch(`http://localhost:5000/users/Buyer/${email}`)
+      fetch(`https://carsale-server.vercel.app/users/Buyer/${email}`)
          .then((res) => res.json())
          .then((data) => {
             console.log(data);

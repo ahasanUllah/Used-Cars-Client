@@ -11,7 +11,7 @@ const Footer = () => {
                      to="/"
                      class="text-3xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
                   >
-                     Carsales
+                     UsedCars
                   </Link>
 
                   <div class="flex flex-wrap justify-center mt-5 -mx-4">

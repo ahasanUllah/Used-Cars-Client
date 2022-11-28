@@ -12,13 +12,15 @@ const AllBuyers = () => {
       isError,
       refetch,
    } = useQuery(['buyers'], async () => {
-      return await axios('http://localhost:5000/users/buyer').then((data) => data.data);
+      return await axios('https://carsale-server.vercel.app/users/buyer', {
+         headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
+      }).then((data) => data.data);
    });
    if (isLoading) {
       return <Spinner></Spinner>;
    }
    const handleDelete = (id) => {
-      fetch(`http://localhost:5000/users/${id}?email=${user.email}`, {
+      fetch(`https://carsale-server.vercel.app/users/${id}?email=${user.email}`, {
          method: 'DELETE',
          headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       })

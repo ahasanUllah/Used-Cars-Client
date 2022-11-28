@@ -12,7 +12,7 @@ const MyBookings = () => {
       isLoading,
       isError,
    } = useQuery(['bookings'], () => {
-      return axios(`http://localhost:5000/bookings/${user.email}`, {
+      return axios(`https://carsale-server.vercel.app/bookings/${user.email}`, {
          headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       }).then((data) => data.data);
    });

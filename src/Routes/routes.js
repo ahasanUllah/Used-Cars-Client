@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
          {
             path: '/category/:id',
             element: <Category></Category>,
-            loader: async ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+            loader: async ({ params }) => fetch(`https://carsale-server.vercel.app/category/${params.id}`),
          },
          {
             path: '/login',
@@ -96,7 +96,7 @@ export const router = createBrowserRouter([
                   </BuyerRoute>
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(`http://localhost:5000/booking/${params.id}`),
+            loader: ({ params }) => fetch(`https://carsale-server.vercel.app/booking/${params.id}`),
          },
          {
             path: '/dashboard/all-seller',

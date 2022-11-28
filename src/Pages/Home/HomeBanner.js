@@ -16,7 +16,7 @@ const HomeBanner = () => {
    } = useQuery(
       ['category'],
       async () => {
-         return await axios('http://localhost:5000/category').then((data) => data.data);
+         return await axios('https://carsale-server.vercel.app/category').then((data) => data.data);
       },
       {
          refetchOnWindowFocus: true,

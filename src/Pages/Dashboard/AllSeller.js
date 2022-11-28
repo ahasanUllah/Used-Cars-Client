@@ -1,18 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 import Spinner from '../Shared/Spinner';
 
 const AllSeller = () => {
+   const { user } = useContext(AuthContext);
    const {
       data: sellers,
       isLoading,
       isError,
       refetch,
    } = useQuery(['sellers'], async () => {
-      return await axios('http://localhost:5000/users/seller', {
+      return await axios('https://carsale-server.vercel.app/users/seller', {
          headers: {
-            authorization: ` bearer ${localStorage.getItem('accessToken')}`,
+            authorization: ` bearer ${localStorage.getItem('accesstoken')}`,
          },
       }).then((data) => data.data);
    });
@@ -20,8 +22,11 @@ const AllSeller = () => {
       return <Spinner></Spinner>;
    }
    const handleDelete = (id) => {
-      fetch(`http://localhost:5000/users/${id}`, {
+      fetch(`https://carsale-server.vercel.app/users/${id}?email=${user.email}`, {
          method: 'DELETE',
+         headers: {
+            authorization: `bearer ${localStorage.getItem('accesstoken')}`,
+         },
       })
          .then((res) => res.json())
          .then((data) => {

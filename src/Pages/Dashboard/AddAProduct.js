@@ -50,7 +50,7 @@ const AddAProduct = () => {
                status: 'available',
                date: new Date(),
             };
-            fetch(`http://localhost:5000/cars?email=${user.email}`, {
+            fetch(`https://carsale-server.vercel.app/cars?email=${user.email}`, {
                method: 'POST',
                headers: {
                   'content-type': 'application/json',
