@@ -11,7 +11,7 @@ const Login = () => {
    const navigate = useNavigate();
    const from = location.state?.from?.pathname || '/';
    const [userEmail, setUserEmail] = useState('');
-   const [token] = useToken(userEmail);
+   // const [token] = useToken(userEmail);
 
    // if (token) {
    //    navigate(from, { replace: true });

@@ -1,11 +1,15 @@
 import moment from 'moment';
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import PrivateRoute from '../../Routes/PrivateRoute';
 import BookingModal from './BookingModal';
 
 const CategoryCards = ({ car }) => {
+   const navigate = useNavigate();
    const { user } = useContext(AuthContext);
    const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName } = car;
+   const handleBook = {};
    return (
       <div>
          <a href="#" className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
@@ -106,15 +110,25 @@ const CategoryCards = ({ car }) => {
                   </div>
                </div>
                <div className="mt-6 ">
-                  <label
-                     htmlFor="booking-modal"
-                     className="btn bg-gradient-to-r from-red-600 to-red-700 text-white border-none mx-auto w-full"
-                  >
-                     Book now
-                  </label>
+                  {user?.email ? (
+                     <label
+                        htmlFor="booking-modal"
+                        className="btn bg-gradient-to-r from-red-600 to-red-700 text-white border-none mx-auto w-full"
+                     >
+                        Book now
+                     </label>
+                  ) : (
+                     <button
+                        onClick={() => navigate('/login')}
+                        className="btn bg-gradient-to-r from-red-600 to-red-700 text-white border-none mx-auto w-full"
+                     >
+                        Book now
+                     </button>
+                  )}
                </div>
             </div>
          </a>
+
          <BookingModal car={car} user={user}></BookingModal>
       </div>
    );
