@@ -8,6 +8,7 @@ import AllSeller from '../Pages/Dashboard/AllSeller';
 import MyBookings from '../Pages/Dashboard/MyBookings';
 import MyProduct from '../Pages/Dashboard/MyProduct';
 import Payment from '../Pages/Dashboard/Payment/Payment';
+import UserProfile from '../Pages/Dashboard/UserProfile';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Login/Register';
@@ -57,6 +58,14 @@ export const router = createBrowserRouter([
       ),
       errorElement: <ErrorPage></ErrorPage>,
       children: [
+         {
+            path: '/dashboard',
+            element: (
+               <PrivateRoute>
+                  <UserProfile></UserProfile>
+               </PrivateRoute>
+            ),
+         },
          {
             path: '/dashboard/addproduct',
             element: (

@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
    return (
       <div>
-         <footer class="bg-white dark:bg-gray-900">
-            <div class="container px-6 py-8 mx-auto">
-               <div class="text-center">
+         <footer className="bg-white dark:bg-gray-900">
+            <div className="container px-6 py-8 mx-auto">
+               <div className="text-center">
                   <Link
                      to="/"
-                     class="text-3xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
+                     className="text-3xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
                   >
                      UsedCars
                   </Link>
 
-                  <div class="flex flex-wrap justify-center mt-5 -mx-4">
+                  <div className="flex flex-wrap justify-center mt-5 -mx-4">
                      <Link
                         href="/"
-                        class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                        className="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
                         aria-label="Reddit"
                      >
                         {' '}
@@ -26,7 +26,7 @@ const Footer = () => {
 
                      <a
                         href="#"
-                        class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                        className="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
                         aria-label="Reddit"
                      >
                         {' '}
@@ -35,7 +35,7 @@ const Footer = () => {
 
                      <Link
                         to="/"
-                        class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                        className="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
                         aria-label="Reddit"
                      >
                         Blogs
@@ -43,7 +43,7 @@ const Footer = () => {
 
                      <a
                         href="#"
-                        class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                        className="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
                         aria-label="Reddit"
                      >
                         {' '}
@@ -52,7 +52,7 @@ const Footer = () => {
 
                      <a
                         href="#"
-                        class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                        className="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
                         aria-label="Reddit"
                      >
                         {' '}
@@ -61,19 +61,19 @@ const Footer = () => {
                   </div>
                </div>
 
-               <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+               <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
 
-               <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-                  <p class="text-gray-500 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
+               <div className="flex flex-col items-center sm:flex-row sm:justify-between">
+                  <p className="text-gray-500 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
 
-                  <div class="flex -mx-2">
+                  <div className="flex -mx-2">
                      <a
                         href="#"
-                        class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                        className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                         aria-label="Reddit"
                      >
                         <svg
-                           class="w-5 h-5 fill-current"
+                           className="w-5 h-5 fill-current"
                            viewBox="0 0 24 24"
                            fill="none"
                            xmlns="http://www.w3.org/2000/svg"
@@ -84,11 +84,11 @@ const Footer = () => {
 
                      <a
                         href="#"
-                        class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                        className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                         aria-label="Facebook"
                      >
                         <svg
-                           class="w-5 h-5 fill-current"
+                           className="w-5 h-5 fill-current"
                            viewBox="0 0 24 24"
                            fill="none"
                            xmlns="http://www.w3.org/2000/svg"
@@ -99,11 +99,11 @@ const Footer = () => {
 
                      <a
                         href="#"
-                        class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                        className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                         aria-label="Github"
                      >
                         <svg
-                           class="w-5 h-5 fill-current"
+                           className="w-5 h-5 fill-current"
                            viewBox="0 0 24 24"
                            fill="none"
                            xmlns="http://www.w3.org/2000/svg"

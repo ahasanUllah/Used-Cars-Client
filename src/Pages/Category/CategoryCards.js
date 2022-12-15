@@ -1,12 +1,13 @@
 import moment from 'moment';
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import PrivateRoute from '../../Routes/PrivateRoute';
 import BookingModal from './BookingModal';
 
 const CategoryCards = ({ car }) => {
    const navigate = useNavigate();
+   const locations = useLocation();
    const { user } = useContext(AuthContext);
    const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName } = car;
    const handleBook = {};
