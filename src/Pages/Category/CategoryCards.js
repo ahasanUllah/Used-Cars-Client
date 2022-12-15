@@ -9,11 +9,13 @@ const CategoryCards = ({ car }) => {
    const navigate = useNavigate();
    const locations = useLocation();
    const { user } = useContext(AuthContext);
-   const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName } = car;
-   const handleBook = {};
+   const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName, advertised } =
+      car;
+   console.log(advertised);
+
    return (
       <div>
-         <a href="#" className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+         <div className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
             <img alt="Home" src={image} className="h-56 w-full rounded-md object-cover" />
 
             <div className="mt-2">
@@ -109,6 +111,11 @@ const CategoryCards = ({ car }) => {
                         <p className="font-medium">{location}</p>
                      </div>
                   </div>
+                  {advertised && (
+                     <div className="sm:inline-flex sm:shrink-0 sm:items-center pl-6">
+                        <i class="bx bx-award text-red-600 text-2xl" title="Top add"></i>
+                     </div>
+                  )}
                </div>
                <div className="mt-6 ">
                   {user?.email ? (
@@ -128,7 +135,7 @@ const CategoryCards = ({ car }) => {
                   )}
                </div>
             </div>
-         </a>
+         </div>
 
          <BookingModal car={car} user={user}></BookingModal>
       </div>
