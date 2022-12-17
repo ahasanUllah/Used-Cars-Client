@@ -8,7 +8,7 @@ import useSeller from '../hooks/useSeller';
 import Navbar from '../Pages/Shared/Navbar';
 
 const DashboardLayout = () => {
-   const { user } = useContext(AuthContext);
+   const { user, logout } = useContext(AuthContext);
    const [isAdmin] = useAdmin(user.email);
    const [isSeller] = useSeller(user.email);
    const [isBuyer] = useBuyer(user.email);
@@ -102,7 +102,8 @@ const DashboardLayout = () => {
                         </ul>
                         <ul className="pt-4 pb-2 space-y-1 text-sm">
                            <li>
-                              <a
+                              <button
+                                 onClick={() => logout()}
                                  rel="noopener noreferrer"
                                  href="/"
                                  className="flex items-center p-2 space-x-3 rounded-md"
@@ -116,7 +117,7 @@ const DashboardLayout = () => {
                                     <rect width="32" height="64" x="256" y="232"></rect>
                                  </svg>
                                  <span>Logout</span>
-                              </a>
+                              </button>
                            </li>
                         </ul>
                      </div>
