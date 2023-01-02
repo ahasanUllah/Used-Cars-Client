@@ -1,6 +1,7 @@
 import DashboardLayout from '../Layout/DashboardLayout';
 import Main from '../Layout/Main';
 import Blog from '../Pages/Blog/Blog';
+import Brand from '../Pages/Brand/Brand';
 import Category from '../Pages/Category/Category';
 import AddAProduct from '../Pages/Dashboard/AddAProduct';
 import AllBuyers from '../Pages/Dashboard/AllBuyers';
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
             path: '/category/:id',
             element: <Category></Category>,
             loader: async ({ params }) => fetch(`https://carsale-server.vercel.app/category/${params.id}`),
+         },
+         {
+            path: '/brand/:id',
+            element: <Brand></Brand>,
+            loader: async ({ params }) => fetch(`https://carsale-server.vercel.app/brand/${params.id}`),
          },
          {
             path: '/login',

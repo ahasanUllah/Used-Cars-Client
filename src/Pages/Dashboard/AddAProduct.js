@@ -1,12 +1,30 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import Spinner from '../Shared/Spinner';
 var moment = require('moment');
 
 const AddAProduct = () => {
    const { user } = useContext(AuthContext);
    const navigate = useNavigate();
+
+   const {
+      data: allBrands,
+      isLoading: allBrandsLoading,
+      isError: allBrandsError,
+   } = useQuery(['allBrands'], async () => {
+      return axios('https://carsale-server.vercel.app/brands').then((data) => data.data);
+   });
+   if (allBrandsLoading) {
+      return <Spinner></Spinner>;
+   }
+   if (allBrandsError) {
+      return <div>Fetch error</div>;
+   }
+
    const handleSubmit = (e) => {
       e.preventDefault();
       const form = e.target;
@@ -19,7 +37,8 @@ const AddAProduct = () => {
       const phone = form.phone.value;
       const condition = form.condition.value;
       const categoryId = form.category.value;
-      console.log(categoryId);
+      const brandName = form.brand.value.split(',')[0];
+      const brandId = form.brand.value.split(',')[1];
 
       //image Upload
       const image = form.image.files[0];
@@ -38,6 +57,8 @@ const AddAProduct = () => {
                image: imageUrl,
                name: productName,
                categoryid: categoryId,
+               brandId,
+               brandName,
                purchaseYear,
                originalPrice,
                resalePrice,
@@ -158,6 +179,23 @@ const AddAProduct = () => {
                            <option value="637ef772b9533ee1def95b2f">Electric</option>
                            <option value="637ef772b9533ee1def95b2d">Convirtible</option>
                            <option value="637ef772b9533ee1def95b2e">Coupe</option>
+                        </select>
+                     </div>
+
+                     <div className="col-span-full sm:col-span-2">
+                        <label htmlFor="brand" className="text-sm">
+                           brand
+                        </label>
+                        <select
+                           defaultValue="637ef772b9533ee1def95b2f"
+                           name="brand"
+                           className="select select-bordered select-sm w-full max-w-xs"
+                        >
+                           {allBrands.map((brand) => (
+                              <option key={brand._id} value={[brand.name, brand._id]}>
+                                 {brand.name}
+                              </option>
+                           ))}
                         </select>
                      </div>
                      <div className="col-span-full ">

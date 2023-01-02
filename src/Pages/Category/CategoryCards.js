@@ -113,7 +113,7 @@ const CategoryCards = ({ car }) => {
                   </div>
                   {advertised && (
                      <div className="sm:inline-flex sm:shrink-0 sm:items-center pl-6">
-                        <i class="bx bx-award text-red-600 text-2xl" title="Top add"></i>
+                        <i className="bx bx-award text-red-600 text-2xl" title="Top add"></i>
                      </div>
                   )}
                </div>
