@@ -1,6 +1,6 @@
-# UsedCares - Leading used cars seller
+# UsedCars - Leading used cars seller
 
--  UsedCares is oncline used car buy and sale service
+-  UsedCars is oncline used car buy and sale service
 -  User authenticate authorized buyer seller different account fully protected with jwt token
 -  This project made by React in frontend some react component used by this project is React router dom React icons axios and react query view etc
 -  Firebase is used to authenticate user and hosting the cliend part. Node and express is used to provide the api.
