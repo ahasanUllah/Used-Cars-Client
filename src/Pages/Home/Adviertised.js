@@ -23,10 +23,10 @@ const Adviertised = () => {
    return (
       <div className="my-12">
          <div>
-            <div className="p-6 py-12 bg-red-600 text-gray-50">
+            <div className="p-6 py-12  text-gray-50 ">
                <div className="container mx-auto">
-                  <div className="flex flex-col lg:flex-row items-center justify-between">
-                     <h2 className="text-center text-4xl tracking-tighter font-bold">
+                  <div className="flex flex-col lg:flex-row items-center justify-center">
+                     <h2 className="text-center text-gray-700 text-4xl tracking-tighter font-xl">
                         Top <span> </span>
                         <br className="sm:hidden" />
                         Ads

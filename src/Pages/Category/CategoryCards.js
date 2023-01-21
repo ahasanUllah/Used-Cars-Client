@@ -111,11 +111,11 @@ const CategoryCards = ({ car }) => {
                         <p className="font-medium">{location}</p>
                      </div>
                   </div>
-                  {advertised && (
+                  {/* {advertised && (
                      <div className="sm:inline-flex sm:shrink-0 sm:items-center pl-6">
                         <i className="bx bx-award text-red-600 text-2xl" title="Top add"></i>
                      </div>
-                  )}
+                  )} */}
                </div>
                <div className="mt-6 ">
                   {user?.email ? (
