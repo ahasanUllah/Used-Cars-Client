@@ -14,7 +14,7 @@ const CheckoutForm = ({ booking }) => {
 
    useEffect(() => {
       // Create PaymentIntent as soon as the page loads
-      fetch('https://carsale-server.vercel.app/create-payment-intent', {
+      fetch(`${process.env.REACT_APP_serverLink}create-payment-intent`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({ price }),
@@ -69,7 +69,7 @@ const CheckoutForm = ({ booking }) => {
             email,
             carId,
          };
-         fetch('https://carsale-server.vercel.app/payments', {
+         fetch(`${process.env.REACT_APP_serverLink}payments`, {
             method: 'POST',
             headers: {
                'content-type': 'application/json',

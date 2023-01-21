@@ -4,7 +4,7 @@ const useSeller = (email) => {
    const [isSeller, setIsSeller] = useState();
    const [isSellerLoading, setIsSellerLoading] = useState(true);
    useEffect(() => {
-      fetch(`https://carsale-server.vercel.app/users/Seller/${email}`)
+      fetch(`${process.env.REACT_APP_serverLink}users/Seller/${email}`)
          .then((res) => res.json())
          .then((data) => {
             console.log(data);

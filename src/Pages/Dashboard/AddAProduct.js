@@ -16,7 +16,7 @@ const AddAProduct = () => {
       isLoading: allBrandsLoading,
       isError: allBrandsError,
    } = useQuery(['allBrands'], async () => {
-      return axios('https://carsale-server.vercel.app/brands').then((data) => data.data);
+      return axios(`${process.env.REACT_APP_serverLink}brands`).then((data) => data.data);
    });
    if (allBrandsLoading) {
       return <Spinner></Spinner>;
@@ -71,7 +71,7 @@ const AddAProduct = () => {
                status: 'available',
                date: new Date(),
             };
-            fetch(`https://carsale-server.vercel.app/cars?email=${user.email}`, {
+            fetch(`${process.env.REACT_APP_serverLink}cars?email=${user.email}`, {
                method: 'POST',
                headers: {
                   'content-type': 'application/json',

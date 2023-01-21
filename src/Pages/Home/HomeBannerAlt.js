@@ -31,7 +31,7 @@ const HomeBannerAlt = () => {
    } = useQuery(
       ['category'],
       async () => {
-         return await axios('https://carsale-server.vercel.app/category').then((data) => data.data);
+         return await axios(`${process.env.REACT_APP_serverLink}category`).then((data) => data.data);
       },
       {
          refetchOnWindowFocus: true,
@@ -42,7 +42,7 @@ const HomeBannerAlt = () => {
       isLoading: allBrandsLoading,
       isError: allBrandsError,
    } = useQuery(['allBrands'], async () => {
-      return axios('https://carsale-server.vercel.app/brands').then((data) => data.data);
+      return axios(`${process.env.REACT_APP_serverLink}brands`).then((data) => data.data);
    });
 
    if (isLoading) {
@@ -62,9 +62,9 @@ const HomeBannerAlt = () => {
    return (
       <div className="overflow-hidden bg-cover" style={{ backgroundImage: `url(${hero})` }}>
          <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-gray-900 bg-opacity-60">
-            <div className="flex flex-col items-center justify-between xl:flex-row">
+            <div className="flex flex-col items-center justify-evenly xl:flex-row">
                <div className="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
-                  <h2 className="max-w-lg mb-6 font-roboto lg:text-6xl font-bold tracking-tight text-gray-50 sm:text-4xl sm:leading-none">
+                  <h2 className="max-w-lg  mb-6 font-roboto lg:text-5xl font-semibold tracking-tight text-gray-50 sm:text-4xl sm:leading-none">
                      Find Your Next <br className="hidden md:block" />
                      <span className="text-teal-accent-400"> Car With Us</span>
                   </h2>

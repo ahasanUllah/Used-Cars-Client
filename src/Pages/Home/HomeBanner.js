@@ -14,7 +14,7 @@ const HomeBanner = () => {
    } = useQuery(
       ['category'],
       async () => {
-         return await axios('https://carsale-server.vercel.app/category').then((data) => data.data);
+         return await axios(`${process.env.REACT_APP_serverLink}category`).then((data) => data.data);
       },
       {
          refetchOnWindowFocus: true,

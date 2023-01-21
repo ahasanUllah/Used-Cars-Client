@@ -18,7 +18,7 @@ const BookingModal = ({ car, user }) => {
          location,
          phone,
       };
-      fetch('https://carsale-server.vercel.app/bookings', {
+      fetch(`${process.env.REACT_APP_serverLink}bookings`, {
          method: 'POST',
          headers: {
             'content-type': 'application/json',

@@ -29,7 +29,7 @@ const Register = () => {
                email,
                role,
             };
-            fetch(`https://carsale-server.vercel.app/users`, {
+            fetch(`${process.env.REACT_APP_serverLink}users`, {
                method: 'POST',
                headers: {
                   'content-type': 'application/json',

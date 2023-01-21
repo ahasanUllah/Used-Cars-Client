@@ -38,12 +38,12 @@ export const router = createBrowserRouter([
          {
             path: '/category/:id',
             element: <Category></Category>,
-            loader: async ({ params }) => fetch(`https://carsale-server.vercel.app/category/${params.id}`),
+            loader: async ({ params }) => fetch(`${process.env.REACT_APP_serverLink}category/${params.id}`),
          },
          {
             path: '/brand/:id',
             element: <Brand></Brand>,
-            loader: async ({ params }) => fetch(`https://carsale-server.vercel.app/brand/${params.id}`),
+            loader: async ({ params }) => fetch(`${process.env.REACT_APP_serverLink}brand/${params.id}`),
          },
          {
             path: '/login',
@@ -111,7 +111,7 @@ export const router = createBrowserRouter([
                   </BuyerRoute>
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(`https://carsale-server.vercel.app/booking/${params.id}`),
+            loader: ({ params }) => fetch(`${process.env.REACT_APP_serverLink}booking/${params.id}`),
          },
          {
             path: '/dashboard/all-seller',

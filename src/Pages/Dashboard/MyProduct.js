@@ -15,7 +15,7 @@ const MyProduct = () => {
       isError,
       refetch,
    } = useQuery(['myCar'], async () => {
-      return await axios(`https://carsale-server.vercel.app/cars/${user?.email}`, {
+      return await axios(`${process.env.REACT_APP_serverLink}cars/${user?.email}`, {
          headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       }).then((data) => data.data);
    });
@@ -27,7 +27,7 @@ const MyProduct = () => {
       return <h2>Cannot fetch data</h2>;
    }
    const handleAdvertise = (id) => {
-      fetch(`https://carsale-server.vercel.app/cars/${id}`, {
+      fetch(`${process.env.REACT_APP_serverLink}cars/${id}`, {
          method: 'PUT',
          headers: { authorization: `bearer ${localStorage.getItem('accessToken')}` },
       })
@@ -42,7 +42,7 @@ const MyProduct = () => {
    };
 
    const handleDelete = (id) => {
-      fetch(`https://carsale-server.vercel.app/cars/${id}?email=${user.email}`, {
+      fetch(`${process.env.REACT_APP_serverLink}cars/${id}?email=${user.email}`, {
          method: 'DELETE',
          headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       })

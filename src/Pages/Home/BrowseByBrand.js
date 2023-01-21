@@ -13,7 +13,7 @@ const BrowseByBrand = () => {
       isLoading: featureBrandsLoading,
       isError: featureBrandsError,
    } = useQuery(['featureBrands'], async () => {
-      return axios('https://carsale-server.vercel.app/feature-brands').then((data) => data.data);
+      return axios(`${process.env.REACT_APP_serverLink}feature-brands`).then((data) => data.data);
    });
 
    const {
@@ -21,7 +21,7 @@ const BrowseByBrand = () => {
       isLoading: allBrandsLoading,
       isError: allBrandsError,
    } = useQuery(['allBrands'], async () => {
-      return axios('https://carsale-server.vercel.app/brands').then((data) => data.data);
+      return axios(`${process.env.REACT_APP_serverLink}brands`).then((data) => data.data);
    });
    if (allBrandsLoading) {
       return <Spinner></Spinner>;

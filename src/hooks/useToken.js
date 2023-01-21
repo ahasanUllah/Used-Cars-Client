@@ -11,7 +11,7 @@ const useToken = (email) => {
    useEffect(() => {
       setIsTokenLoading(true);
       if (email) {
-         fetch(`https://carsale-server.vercel.app/jwt?email=${email}`)
+         fetch(`${process.env.REACT_APP_serverLink}jwt?email=${email}`)
             .then((res) => res.json())
             .then((data) => {
                console.log(data);

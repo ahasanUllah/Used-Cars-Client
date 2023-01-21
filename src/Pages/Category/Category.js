@@ -13,7 +13,7 @@ const Category = () => {
    const { id } = useParams();
 
    const { data, isLoading } = useQuery(['categories'], () => {
-      return axios(`https://carsale-server.vercel.app/category/single/${id}`).then((data) => data.data);
+      return axios(`${process.env.REACT_APP_serverLink}category/single/${id}`).then((data) => data.data);
    });
 
    if (isLoading) {

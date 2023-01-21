@@ -12,7 +12,7 @@ const AllBuyers = () => {
       isError,
       refetch,
    } = useQuery(['buyers'], async () => {
-      return await axios('https://carsale-server.vercel.app/users/buyer', {
+      return await axios(`${process.env.REACT_APP_serverLink}users/buyer`, {
          headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       }).then((data) => data.data);
    });
@@ -20,7 +20,7 @@ const AllBuyers = () => {
       return <Spinner></Spinner>;
    }
    const handleDelete = (id) => {
-      fetch(`https://carsale-server.vercel.app/users/${id}?email=${user.email}`, {
+      fetch(`${process.env.REACT_APP_serverLink}users/${id}?email=${user.email}`, {
          method: 'DELETE',
          headers: { authorization: `bearer ${localStorage.getItem('accesstoken')}` },
       })

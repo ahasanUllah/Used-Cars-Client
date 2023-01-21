@@ -10,7 +10,7 @@ const AllCars = () => {
       isLoading,
       isError,
    } = useQuery(['allCars'], async () => {
-      return axios('https://carsale-server.vercel.app/availableCars').then((data) => data.data);
+      return axios(`${process.env.REACT_APP_serverLink}availableCars`).then((data) => data.data);
    });
    if (isLoading) {
       return <Spinner></Spinner>;
