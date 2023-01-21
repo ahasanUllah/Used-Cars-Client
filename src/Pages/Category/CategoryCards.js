@@ -11,7 +11,6 @@ const CategoryCards = ({ car }) => {
    const { user } = useContext(AuthContext);
    const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName, advertised } =
       car;
-   console.log(advertised);
 
    return (
       <div>

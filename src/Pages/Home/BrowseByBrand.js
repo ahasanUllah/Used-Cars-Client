@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import Bmw from '../../assets/brand/Bmw.jpg';
+
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Spinner from '../Shared/Spinner';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/solid';
-import { Navigate } from 'react-router-dom';
 
 const BrowseByBrand = () => {
    const [brandCount, setBrandCount] = useState(4);

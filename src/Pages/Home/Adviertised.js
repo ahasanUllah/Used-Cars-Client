@@ -18,7 +18,6 @@ const Adviertised = () => {
    if (isError) {
       return <div>Cannot fetch data</div>;
    }
-   console.log(advertised);
 
    return (
       <div className="my-12">
