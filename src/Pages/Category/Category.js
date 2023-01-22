@@ -12,7 +12,7 @@ const Category = () => {
 
    const { id } = useParams();
 
-   const { data, isLoading } = useQuery(['categories'], () => {
+   const { data, isLoading } = useQuery(['categories'], async () => {
       return axios(`${process.env.REACT_APP_serverLink}category/single/${id}`).then((data) => data.data);
    });
 
@@ -20,7 +20,7 @@ const Category = () => {
       return (
          <div className="space-y-8 my-20">
             <div className="w-1/4 h-6 rounded bg-gray-300 mx-auto"> </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
                {cars.map((car) => (
                   <SkeletonCard></SkeletonCard>
                ))}
@@ -33,7 +33,7 @@ const Category = () => {
    return (
       <div className="space-y-8 my-20">
          <h2 className="text-2xl font-semibold text-center">{data.name} Cars up for sale</h2>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+         <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {cars.map((car) => (
                <CategoryCards key={car._id} car={car}></CategoryCards>
             ))}

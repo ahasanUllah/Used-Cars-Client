@@ -1,11 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import hero from '../../assets/hero.jpg';
 import Spinner from '../Shared/Spinner';
 
 const HomeBannerAlt = () => {
    const [selectedYear, setSelectedYear] = useState(0);
+   const navigate = useNavigate();
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const type = form.type.value;
+      const make = form.make.value;
+      const yearFrom = form.yearFrom.value;
+      const yearTo = form.yearTo.value;
+      navigate(`search?type=${type}&make=${make}&from=${yearFrom}&to=${yearTo}`);
+   };
+
    const optionsFrom = [];
    const optionsTo = [];
    const currentYear = new Date().getFullYear();
@@ -84,7 +97,7 @@ const HomeBannerAlt = () => {
                         <rect fill="url(#766323e1-e594-4ffd-a688-e7275079d540)" width="52" height="24" />
                      </svg>
                      <div className="relative bg-white rounded shadow-2xl p-7 sm:p-10">
-                        <form>
+                        <form onSubmit={handleSubmit}>
                            <div className="flex justify-between">
                               <div className="mb-1 sm:mb-2">
                                  <label
@@ -93,9 +106,14 @@ const HomeBannerAlt = () => {
                                  >
                                     Type
                                  </label>
-                                 <select class="block w-44 p-2 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none ">
+                                 <select
+                                    class="block w-44 p-2 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none "
+                                    name="type"
+                                 >
                                     {category.map((type) => (
-                                       <option key={type._id}>{type.name}</option>
+                                       <option key={type._id} value={type._id}>
+                                          {type.name}
+                                       </option>
                                     ))}
                                  </select>
                               </div>
@@ -107,7 +125,10 @@ const HomeBannerAlt = () => {
                                  >
                                     Make
                                  </label>
-                                 <select className="block w-44 p-2 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none ">
+                                 <select
+                                    className="block w-44 p-2 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none "
+                                    name="make"
+                                 >
                                     {allBrands.map((make) => (
                                        <option>{make.name}</option>
                                     ))}
@@ -122,7 +143,10 @@ const HomeBannerAlt = () => {
                                  >
                                     Year From
                                  </label>
-                                 <select class="block w-full py-2 px-4 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none ">
+                                 <select
+                                    class="block w-full py-2 px-4 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none "
+                                    name="yearFrom"
+                                 >
                                     {optionsFrom.reverse()}
                                  </select>
                               </div>
@@ -133,7 +157,10 @@ const HomeBannerAlt = () => {
                                  >
                                     Year To
                                  </label>
-                                 <select class="block w-full py-2 px-4 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none ">
+                                 <select
+                                    class="block w-full py-2 px-4 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none "
+                                    name="yearTo"
+                                 >
                                     {optionsTo}
                                  </select>
                               </div>
@@ -144,7 +171,10 @@ const HomeBannerAlt = () => {
                                  >
                                     Choose a Model
                                  </label>
-                                 <select class="block w-44 p-2 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none ">
+                                 <select
+                                    class="block w-44 p-2 mb-6 text-sm text-gray-900 border border-gray-400  bg-gray-50 focus:border-gray-400 outline-none "
+                                    name="model"
+                                 >
                                     <option value="Choose a Model">Choose a Model</option>
                                  </select>
                               </div>

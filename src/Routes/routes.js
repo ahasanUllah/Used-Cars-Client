@@ -13,6 +13,7 @@ import UserProfile from '../Pages/Dashboard/UserProfile';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Login/Register';
+import Search from '../Pages/Search/Search';
 import ErrorPage from '../Pages/Shared/ErrorPage';
 import AdminRoute from './AdminRoute';
 import BuyerRoute from './BuyerRoute';
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
          {
             path: '/blog',
             element: <Blog></Blog>,
+         },
+         {
+            path: '/search',
+            element: <Search></Search>,
          },
          {
             path: '/category/:id',
