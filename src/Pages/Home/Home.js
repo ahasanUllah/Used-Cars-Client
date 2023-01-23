@@ -13,7 +13,7 @@ const Home = () => {
 
          <Adviertised></Adviertised>
          <BrowseByBrand></BrowseByBrand>
-         <HomeFeature></HomeFeature>
+
          <AllCars></AllCars>
       </div>
    );
