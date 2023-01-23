@@ -60,7 +60,7 @@ const Navbar = () => {
                      <Link to="/dashboard" className="mx-5">
                         Dashboard
                      </Link>
-                     <Link onClick={handleLogout} className="btn">
+                     <Link onClick={handleLogout} className="">
                         Logout
                      </Link>
 

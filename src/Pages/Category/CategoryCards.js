@@ -1,8 +1,8 @@
+import { ArrowrightIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
 import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-
 import BookingModal from './BookingModal';
 
 const CategoryCards = ({ car }) => {
@@ -29,21 +29,21 @@ const CategoryCards = ({ car }) => {
                      </dd>
                   </div>
 
-                  <div>
+                  {/* <div>
                      <dt className="">Seller: {sellerName}</dt>
-                  </div>
+                  </div> */}
                   <div>
                      <dt className="">Posted on: {moment.utc(date).local().startOf('seconds').fromNow()}</dt>
                   </div>
-                  <div>
+                  {/* <div>
                      <dt className="">Location: {location}</dt>
-                  </div>
+                  </div> */}
                </dl>
 
-               <div className="mt-6 flex items-center gap-8 text-xs">
+               <div className="mt-6 flex items-center justify-around gap-8 text-xs">
                   <div className="sm:inline-flex sm:shrink-0 sm:items-center">
                      <svg
-                        className="text-red-600 w-6 h-6"
+                        className=" w-6 h-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -66,7 +66,7 @@ const CategoryCards = ({ car }) => {
 
                   <div className="sm:inline-flex sm:shrink-0 sm:items-center">
                      <svg
-                        className="text-red-600 h-6 w-6"
+                        className=" h-6 w-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ const CategoryCards = ({ car }) => {
                      </div>
                   </div>
 
-                  <div className="sm:inline-flex sm:shrink-0 sm:items-center ">
+                  {/* <div className="sm:inline-flex sm:shrink-0 sm:items-center ">
                      <svg
                         className="text-red-600 w-6 h-6"
                         xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ const CategoryCards = ({ car }) => {
 
                         <p className="font-medium">{location}</p>
                      </div>
-                  </div>
+                  </div> */}
                   {/* {advertised && (
                      <div className="sm:inline-flex sm:shrink-0 sm:items-center pl-6">
                         <i className="bx bx-award text-red-600 text-2xl" title="Top add"></i>
@@ -118,17 +118,28 @@ const CategoryCards = ({ car }) => {
                </div>
                <div className="mt-6 ">
                   {user?.email ? (
-                     <label
-                        htmlFor="booking-modal"
-                        className="btn bg-gradient-to-r from-red-600 to-red-700 text-white border-none mx-auto w-full"
-                     >
-                        Book now
-                     </label>
-                  ) : (
                      <button
-                        onClick={() => navigate('/login')}
-                        className="btn bg-gradient-to-r from-red-600 to-red-700 text-white border-none mx-auto w-full"
+                        htmlFor="booking-modal"
+                        className="btn btn-link text-green-600 no-underline hover:no-underline border-none mx-auto transition-transform hover:translate-x-1 text-sm font-semibold"
                      >
+                        Book now{' '}
+                        <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           strokeWidth={1.5}
+                           stroke="currentColor"
+                           className="w-6 h-6 ml-2"
+                        >
+                           <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                           />
+                        </svg>
+                     </button>
+                  ) : (
+                     <button onClick={() => navigate('/login')} className=" btn btn-link border-none mx-auto w-full">
                         Book now
                      </button>
                   )}

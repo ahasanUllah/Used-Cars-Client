@@ -74,7 +74,7 @@ const HomeBannerAlt = () => {
 
    return (
       <div className="overflow-hidden bg-cover" style={{ backgroundImage: `url(${hero})` }}>
-         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-gray-900 bg-opacity-60">
+         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full md:px-24 lg:px-8 lg:py-20 bg-gray-900 bg-opacity-60">
             <div className="flex flex-col items-center justify-evenly xl:flex-row">
                <div className="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
                   <h2 className="max-w-lg  mb-6 font-roboto lg:text-5xl font-semibold tracking-tight text-gray-50 sm:text-4xl sm:leading-none">
@@ -98,7 +98,7 @@ const HomeBannerAlt = () => {
                      </svg>
                      <div className="relative bg-white rounded shadow-2xl p-7 sm:p-10">
                         <form onSubmit={handleSubmit}>
-                           <div className="flex justify-between">
+                           <div className="flex flex-col md:flex-row justify-between">
                               <div className="mb-1 sm:mb-2">
                                  <label
                                     for="small"
@@ -135,7 +135,7 @@ const HomeBannerAlt = () => {
                                  </select>
                               </div>
                            </div>
-                           <div className="flex justify-between">
+                           <div className="flex flex-col md:flex-row justify-between">
                               <div className="mb-1 sm:mb-2">
                                  <label
                                     for="small"

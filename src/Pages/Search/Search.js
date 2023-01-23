@@ -45,7 +45,7 @@ const Search = () => {
       <div>
          {cars.length > 0 ? (
             <div className="space-y-8 my-20">
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+               <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
                   {cars.map((car) => (
                      <CategoryCards key={car._id} car={car}></CategoryCards>
                   ))}

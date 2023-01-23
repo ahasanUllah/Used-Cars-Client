@@ -39,9 +39,9 @@ const BrowseByBrand = () => {
 
    return (
       <div>
-         <div className="border border-gray-300 px-6 py-8">
+         <div className="border border-gray-300 px-6 py-8 ">
             <h1 className="text-3xl text-center ">Browse By brand</h1>
-            <div className="grid grid-cols-4 gap-6 m-11">
+            <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6 m-11 ">
                {featureBrands.map((brand) => (
                   <a
                      key={brand._id}
@@ -68,7 +68,11 @@ const BrowseByBrand = () => {
                   </p>
                </button>
             </div>
-            <div className={`grid grid-cols-5 gap-4 ${!toggleBrands ? 'hidden' : ''}`}>
+            <div
+               className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 ${
+                  !toggleBrands ? 'hidden' : ''
+               }`}
+            >
                {allBrands.map((brand) => (
                   <a
                      key={brand._id}
