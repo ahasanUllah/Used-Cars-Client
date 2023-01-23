@@ -48,16 +48,16 @@ const Register = () => {
             toast.error(error.message);
             console.log(error);
          });
-   };
-   updateUser()
-      .then((result) => {
-         toast.success('Register successful');
-      })
-      .catch((error) => {
-         console.log(error);
-         toast.error(error.message);
-      });
 
+      updateUser()
+         .then((result) => {
+            toast.success('Register successful');
+         })
+         .catch((error) => {
+            console.log(error);
+            toast.error(error.message);
+         });
+   };
    const handleGoogle = () => {
       googleLogin()
          .then((result) => {
@@ -131,14 +131,14 @@ const Register = () => {
                   <div>
                      <button
                         type="submit"
-                        className="w-full px-8 py-3 font-semibold rounded-md bg-red-600 text-gray-50"
+                        className="w-full px-8 py-3 font-semibold rounded-md bg-green-600 hover:bg-green-500 text-gray-50"
                      >
                         Register
                      </button>
                   </div>
                   <p className="px-6 text-sm text-center text-gray-600">
-                     Don't have an account yet?
-                     <Link rel="noopener noreferrer" to="/login" className="hover:underline text-red-600">
+                     Don't have an account yet?{' '}
+                     <Link rel="noopener noreferrer" to="/login" className="hover:underline text-green-600">
                         Login
                      </Link>
                      .

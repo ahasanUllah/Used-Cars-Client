@@ -2,7 +2,9 @@ import DashboardLayout from '../Layout/DashboardLayout';
 import Main from '../Layout/Main';
 import Blog from '../Pages/Blog/Blog';
 import Brand from '../Pages/Brand/Brand';
+import Cars from '../Pages/Cars/Cars';
 import Category from '../Pages/Category/Category';
+import ContactUs from '../Pages/ContactUs/ContactUs';
 import AddAProduct from '../Pages/Dashboard/AddAProduct';
 import AllBuyers from '../Pages/Dashboard/AllBuyers';
 import AllSeller from '../Pages/Dashboard/AllSeller';
@@ -39,6 +41,14 @@ export const router = createBrowserRouter([
          {
             path: '/search',
             element: <Search></Search>,
+         },
+         {
+            path: '/cars',
+            element: <Cars></Cars>,
+         },
+         {
+            path: '/contact',
+            element: <ContactUs></ContactUs>,
          },
          {
             path: '/category/:id',

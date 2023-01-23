@@ -98,7 +98,7 @@ const HomeBannerAlt = () => {
                      </svg>
                      <div className="relative bg-white rounded shadow-2xl p-7 sm:p-10">
                         <form onSubmit={handleSubmit}>
-                           <div className="flex flex-col md:flex-row justify-between">
+                           <div className="flex flex-col md:flex-row justify-evenly">
                               <div className="mb-1 sm:mb-2">
                                  <label
                                     for="small"
@@ -135,7 +135,7 @@ const HomeBannerAlt = () => {
                                  </select>
                               </div>
                            </div>
-                           <div className="flex flex-col md:flex-row justify-between">
+                           <div className="flex flex-col md:flex-row justify-evenly">
                               <div className="mb-1 sm:mb-2">
                                  <label
                                     for="small"
@@ -183,7 +183,7 @@ const HomeBannerAlt = () => {
                            <div className="mt-4 mb-2 sm:mb-4">
                               <button
                                  type="submit"
-                                 className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-b from-green-500 to-green-700  hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                 className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-600   hover:bg-green-500  "
                               >
                                  Search
                               </button>

@@ -4,7 +4,7 @@ import React from 'react';
 import CategoryCards from '../Category/CategoryCards';
 import Spinner from '../Shared/Spinner';
 
-const AllCars = () => {
+const Cars = () => {
    const {
       data: allCars,
       isLoading,
@@ -26,9 +26,8 @@ const AllCars = () => {
                <div className="container mx-auto">
                   <div className="flex flex-col lg:flex-row items-center justify-center">
                      <h2 className="text-center text-gray-700 text-4xl tracking-tighter font-xl">
-                        Latest from <span> </span>
+                        <span> </span>
                         <br className="sm:hidden" />
-                        Us
                      </h2>
                   </div>
                </div>
@@ -43,4 +42,4 @@ const AllCars = () => {
    );
 };
 
-export default AllCars;
+export default Cars;

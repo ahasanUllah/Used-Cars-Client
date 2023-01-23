@@ -31,8 +31,8 @@ const HomeFeature = () => (
          <div className="grid max-w-screen-lg gap-8 row-gap-10 mx-auto lg:grid-cols-2">
             <div className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
                <div className="mr-4">
-                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-indigo-50">
-                     <FaCar className="w-16 h-16 text-red-600"></FaCar>
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-green-100">
+                     <FaCar className="w-16 h-16 text-green-600"></FaCar>
                   </div>
                </div>
                <div>
@@ -52,8 +52,8 @@ const HomeFeature = () => (
             </div>
             <div className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
                <div className="mr-4">
-                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-indigo-50">
-                     <FaFileAlt className="w-16 h-16 text-red-600" />
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-green-100">
+                     <FaFileAlt className="w-16 h-16 text-green-600" />
                   </div>
                </div>
                <div>
@@ -73,8 +73,8 @@ const HomeFeature = () => (
             </div>
             <div className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
                <div className="mr-4">
-                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-indigo-50">
-                     <FaTags className="w-16 h-16 text-red-600" />
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-green-100">
+                     <FaTags className="w-16 h-16 text-green-600" />
                   </div>
                </div>
                <div>
@@ -95,8 +95,8 @@ const HomeFeature = () => (
             </div>
             <div className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
                <div className="mr-4">
-                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-indigo-50">
-                     <FaShieldAlt className="w-16 h-16 text-red-600" />
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-green-100">
+                     <FaShieldAlt className="w-12 h-12 text-green-600" />
                   </div>
                </div>
                <div>
