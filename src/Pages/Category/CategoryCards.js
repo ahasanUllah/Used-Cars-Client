@@ -1,7 +1,6 @@
-import { ArrowrightIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
 import React, { useContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import BookingModal from './BookingModal';
 
@@ -9,8 +8,7 @@ const CategoryCards = ({ car }) => {
    const navigate = useNavigate();
 
    const { user } = useContext(AuthContext);
-   const { name, image, location, originalPrice, resalePrice, purchaseYear, condition, date, sellerName, advertised } =
-      car;
+   const { name, image, originalPrice, resalePrice, purchaseYear, condition, date } = car;
 
    return (
       <div>

@@ -1,12 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import hero from '../../assets/hero.jpg';
 import Spinner from '../Shared/Spinner';
 
 const HomeBannerAlt = () => {
-   const [selectedYear, setSelectedYear] = useState(0);
    const navigate = useNavigate();
 
    const handleSubmit = (e) => {
@@ -40,7 +39,6 @@ const HomeBannerAlt = () => {
       data: category = [],
       isLoading,
       isError,
-      refetch,
    } = useQuery(
       ['category'],
       async () => {

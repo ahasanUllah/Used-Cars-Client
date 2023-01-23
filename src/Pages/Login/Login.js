@@ -3,7 +3,6 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../hooks/useToken';
-import Spinner from '../Shared/Spinner';
 
 const Login = () => {
    const { login, googleLogin } = useContext(AuthContext);
@@ -97,9 +96,9 @@ const Login = () => {
                         <label htmlFor="password" className="text-sm">
                            Password
                         </label>
-                        <a rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-600">
+                        <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-600">
                            Forgot password?
-                        </a>
+                        </Link>
                      </div>
                      <input
                         type="password"

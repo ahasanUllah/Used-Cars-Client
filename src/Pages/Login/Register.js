@@ -110,9 +110,9 @@ const Register = () => {
                         <label htmlFor="password" className="text-sm">
                            Password
                         </label>
-                        <a rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-600">
+                        <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline text-gray-600">
                            Forgot password?
-                        </a>
+                        </Link>
                      </div>
                      <input
                         type="password"
