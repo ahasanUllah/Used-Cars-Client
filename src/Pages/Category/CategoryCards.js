@@ -116,7 +116,7 @@ const CategoryCards = ({ car }) => {
                </div>
                <div className="mt-6 ">
                   {user?.email ? (
-                     <button
+                     <label
                         htmlFor="booking-modal"
                         className="btn btn-link text-green-600 no-underline hover:no-underline border-none mx-auto transition-transform hover:translate-x-1 text-sm font-semibold"
                      >
@@ -135,7 +135,7 @@ const CategoryCards = ({ car }) => {
                               d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                            />
                         </svg>
-                     </button>
+                     </label>
                   ) : (
                      <button
                         onClick={() => navigate('/login')}

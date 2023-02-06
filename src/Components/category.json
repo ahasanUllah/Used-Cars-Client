@@ -1,0 +1,27 @@
+[
+   {
+      "_id": "637ef772b9533ee1def95b2d",
+      "name": "Convirtible",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/Convertible2.svg"
+   },
+   {
+      "_id": "637ef772b9533ee1def95b2e",
+      "name": "Coupe",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/Coupe3.svg"
+   },
+   {
+      "_id": "637ef772b9533ee1def95b2f",
+      "name": "Electric",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/ElectricCar5.svg"
+   },
+   {
+      "_id": "63df4115fea430038873f5fc",
+      "name": "Off Roader",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/OffRoaderGray.svg"
+   },
+   {
+      "_id": "63df3f29fea430038873f5fb",
+      "name": "Van",
+      "image": "https://bhalogari-static.s3.amazonaws.com/media/Van1.svg"
+   }
+]
