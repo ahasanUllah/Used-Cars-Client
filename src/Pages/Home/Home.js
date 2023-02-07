@@ -9,10 +9,10 @@ const Home = () => {
    return (
       <div className=" mx-auto">
          <HomeBannerAlt></HomeBannerAlt>
+         <CategoryHomeCards></CategoryHomeCards>
          <Adviertised></Adviertised>
          <BrowseByBrand></BrowseByBrand>
          <AllCars></AllCars>
-         <CategoryHomeCards></CategoryHomeCards>
       </div>
    );
 };
